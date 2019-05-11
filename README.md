@@ -1,5 +1,5 @@
 # FeedReaderTesting
-This test is a required project in Udacity's Front-End Nanodegree Program.
+This tests is a required project in Udacity's Front-End Nanodegree Program.
 ## Project Idea
 The project idea is to test the code of another developer and the purpose of this project is to demonstrate the knowledge of Jasmine framework and Test Driven Development
 ## How to run the Application
