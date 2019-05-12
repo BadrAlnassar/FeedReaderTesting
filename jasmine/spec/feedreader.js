@@ -57,6 +57,7 @@ $(function() {
 
     describe('The menu' , () => {
 
+        let B = $("body"); 
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
@@ -64,7 +65,6 @@ $(function() {
          */
 
         it('ensure the menu element is hidden' , () => {
-            let B = $("body"); 
             expect(B.hasClass("menu-hidden")).toBe(true);
         } )
 
@@ -75,8 +75,7 @@ $(function() {
           */
 
          it ('ensures the menu changes' , () => {
-            let B = $("body"); // to get the body to use it in tests
-            let M = document.getElementsByClassName("menu-icon-link")[0]; // to get menu icon 
+            let M = $(".menu-icon-link") // to get menu icon 
             M.click();
             expect(B.hasClass('menu-hidden')).toBe(false);
             M.click();
@@ -116,19 +115,16 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
        
-        var F1 ; // feed number 1
-        var F2 ; // feed number 2
+        var F1 ; 
         beforeEach((done) => {
              loadFeed(0 , () => {
-                F1 = $('.feed').text();
-                loadFeed(1 , (done) => {
-                    F2= $('.feed').text();
-                    done();
-                })
-             })
-        })
+                F1 =$(".feed").text();
+                loadFeed(1 ,done);
+             });
+        });
 
         it ("ensures a new feed is loaded" , (done) => {
+            var F2 = $(".feed").text();
             expect(F1).not.toBe(F2)
             done();
         })
