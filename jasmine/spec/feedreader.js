@@ -32,7 +32,7 @@ $(function() {
         it('url defined and not empty' , () => {
             allFeeds.forEach(el => {
                 expect(el.url).toBeDefined(); // to ensure it has a url
-                expect(el.url).not.toBe(0);   // to ensure is not embty 
+                expect(el.url.length).not.toBe(0);   // to ensure is not embty 
 
             })
 
@@ -45,7 +45,7 @@ $(function() {
         it('name defined and not empty' , () => {
             allFeeds.forEach(el => {
                 expect(el.name).toBeDefined(); // to ensure it has a name
-                expect(el.name).not.toBe(0);   // to ensure is not embty 
+                expect(el.name.length).not.toBe(0);   // to ensure is not embty 
 
             })
 
@@ -101,7 +101,7 @@ $(function() {
 
         it('there is at least a single entry element', (done) => {
             EntryElement = $(".feed").find('.entry');
-            expect(EntryElement.length).not.toBeLessThan(0);
+            expect(EntryElement.length).toBeGreaterThan(0);
             done();
         })
     })
