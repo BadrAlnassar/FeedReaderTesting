@@ -94,17 +94,15 @@ $(function() {
          */
        
         var EntryElement;
-            beforeEach(function() {
-                loadFeed(0 , (done) => {
-                    EntryElement =$('.feed .entry').length
-                    done();
-                })
+            beforeEach(function(done) {
+                loadFeed(0 , done)
         });
         
 
         it('there is at least a single entry element', (done) => {
-            expect(EntryElement).not.toBeLessThan(0);
-            done()
+            EntryElement = $(".feed").find('.entry');
+            expect(EntryElement.length).not.toBeLessThan(0);
+            done();
         })
     })
 
